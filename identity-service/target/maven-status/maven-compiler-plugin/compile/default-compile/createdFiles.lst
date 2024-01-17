@@ -1,0 +1,10 @@
+com\java\entity\UserCredential.class
+com\java\config\CustomUserDetails.class
+com\java\IdentityServiceApplication.class
+com\java\service\JwtService.class
+com\java\dto\AuthRequest.class
+com\java\repository\UserCredentialRepository.class
+com\java\config\AuthConfig.class
+com\java\config\CustomUserDetailsService.class
+com\java\controller\AuthController.class
+com\java\service\AuthService.class

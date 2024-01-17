@@ -1,0 +1,59 @@
+version: '3'
+services:
+  apigateway:
+    image: apigateway:latest
+    ports:
+      - "8060:8060"  # Adjust the port as needed
+
+  configserver:
+    image: configserver:latest
+    ports:
+      - "8888:8888"  # Adjust the port as needed
+
+  eurekaserver:
+    image: eurekaserver:latest
+    ports:
+      - "8761:8761"  # Adjust the port as needed
+
+  flightbooking:
+    image: flightbooking:latest
+    ports:
+      - "8081:8081"  # Adjust the port as needed
+    depends_on:
+      - eurekaserver
+      - configserver
+  customerservice:
+    image: flightbooking:latest
+    ports:
+      - "8084:8084"  # Adjust the port as needed
+    depends_on:
+      - eurekaserver
+      - configserver
+  flightsearchservice:
+    image: flightbooking:latest
+    ports:
+      - "8085:8085"  # Adjust the port as needed
+    depends_on:
+      - eurekaserver
+      - configserver
+  hotelbooking:
+    image: flightbooking:latest
+    ports:
+      - "8082:8082"  # Adjust the port as needed
+    depends_on:
+      - eurekaserver
+      - configserver
+  IDENTITIY-SERVICE:
+    image: IDENTITIY-SERVICE:latest
+    ports:
+      - "8083:8083"  # Adjust the port as needed
+    depends_on:
+      - eurekaserver
+      - configserver
+  paymentservice:
+    image: paymentservice:latest
+    ports:
+      - "8086:8086"  # Adjust the port as needed
+    depends_on:
+      - eurekaserver
+      - configserver
